@@ -4,8 +4,7 @@ package com.example.BMS.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +12,9 @@ import java.util.List;
 @Entity(name="shows")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Show extends BaseModel{
 
     @ManyToOne
