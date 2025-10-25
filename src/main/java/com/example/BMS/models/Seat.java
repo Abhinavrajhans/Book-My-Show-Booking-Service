@@ -13,8 +13,8 @@ import java.util.List;
 public class Seat extends BaseModel {
 
     private String seatNumber;
-    private int row;
-    private int column;
+    private int rowValue;
+    private int columnValue;
 
     @Enumerated(EnumType.ORDINAL) // what is ordinal it is not going to store the actual seat type value instead it is going to store the asscoiated number
     // if we keep the string then it will store the string but string type searches is expensive.
