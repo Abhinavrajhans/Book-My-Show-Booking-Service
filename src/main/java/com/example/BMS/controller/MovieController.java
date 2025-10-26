@@ -1,12 +1,14 @@
 package com.example.BMS.controller;
 
+import com.example.BMS.dto.MovieRequestDTO;
+import com.example.BMS.dto.MovieResponseDTO;
 import com.example.BMS.models.Movie;
 import com.example.BMS.service.MovieService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,13 +19,18 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    @GetMapping
-    public List<Movie> getAllMovies(){
-        return movieService.findAllMovies();
+    @PostMapping
+    public ResponseEntity<MovieResponseDTO> createMovie(@Valid @RequestBody MovieRequestDTO movieRequestDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(movieService.createMovie(movieRequestDTO));
     }
 
     @GetMapping("/id/{id}")
-    public Movie getMovieById(@PathVariable Long id){
-        return movieService.findMovieById(id).orElse(null);
+    public ResponseEntity<MovieResponseDTO> getMovie(@PathVariable Long id) {
+        return ResponseEntity.ok(movieService.findMovieById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<MovieResponseDTO>>  getMovies() {
+        return ResponseEntity.ok(movieService.findAllMovies());
     }
 }

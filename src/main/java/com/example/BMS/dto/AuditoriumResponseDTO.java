@@ -3,9 +3,10 @@ package com.example.BMS.dto;
 
 import lombok.*;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class AuditoriumResponseDTO {
 

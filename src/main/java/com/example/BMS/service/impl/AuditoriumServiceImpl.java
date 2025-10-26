@@ -1,10 +1,11 @@
-package com.example.BMS.service;
+package com.example.BMS.service.impl;
 
 import com.example.BMS.adapter.AuditoriumAdapter;
 import com.example.BMS.dto.AuditoriumRequestDTO;
 import com.example.BMS.dto.AuditoriumResponseDTO;
 import com.example.BMS.models.Auditorium;
 import com.example.BMS.repository.AuditoriumRepository;
+import com.example.BMS.service.AuditoriumService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,18 +24,24 @@ public class AuditoriumServiceImpl implements AuditoriumService {
     }
 
     @Override
-    public AuditoriumResponseDTO getAuditoriumById(Long id) {
+    public AuditoriumResponseDTO findAuditoriumById(Long id) {
         Auditorium auditorium = auditoriumRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Auditorium not found with id: " + id));
         return AuditoriumAdapter.toDTO(auditorium);
     }
 
     @Override
-    public List<AuditoriumResponseDTO> getAllAuditorium() {
+    public List<AuditoriumResponseDTO> findAllAuditorium() {
         return auditoriumRepository.findAll()
                 .stream()
                 .map(AuditoriumAdapter::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Auditorium findAuditoriumEntityById(Long id) {
+        return auditoriumRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Auditorium not found with id: " + id));
     }
 
 

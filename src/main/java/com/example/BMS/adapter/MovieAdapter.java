@@ -6,13 +6,20 @@ import com.example.BMS.models.Movie;
 
 public class MovieAdapter {
 
-//    public Movie toEntity(MovieRequestDTO dto)
-//    {
-//
-//    }
-//
-//    public MovieResponseDTO toDTO(Movie entity)
-//    {
-//
-//    }
+    public static Movie toEntity(MovieRequestDTO dto)
+    {
+        return Movie.builder()
+                .name(dto.getName())
+                .poster(dto.getPoster())
+                .build();
+    }
+
+    public static MovieResponseDTO toDTO(Movie entity)
+    {
+        return MovieResponseDTO.builder()
+                .id(entity.getId())
+                .name(entity.getName())
+                .poster(entity.getPoster())
+                .build();
+    }
 }

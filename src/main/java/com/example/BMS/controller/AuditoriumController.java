@@ -27,13 +27,12 @@ public class AuditoriumController {
 
     @GetMapping("/id/{id}")
     public ResponseEntity<AuditoriumResponseDTO> getAuditoriumById(@PathVariable Long id) {
-        return ResponseEntity.ok(auditoriumService.getAuditoriumById(id));
+        return ResponseEntity.ok(auditoriumService.findAuditoriumById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<AuditoriumResponseDTO>> getAllAuditoriums() {
-        List<AuditoriumResponseDTO> auditoriums = auditoriumService.getAllAuditorium();
-        return ResponseEntity.ok(auditoriums);
+        return ResponseEntity.ok(auditoriumService.findAllAuditorium());
     }
 
 }

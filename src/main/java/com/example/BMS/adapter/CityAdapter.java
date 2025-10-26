@@ -6,14 +6,18 @@ import com.example.BMS.models.City;
 
 public class CityAdapter {
 
+    public static City toEntity(CityRequestDTO dto)
+    {
+        return City.builder()
+                .name(dto.getName())
+                .build();
+    }
 
-//    public City toEntity(CityRequestDTO dto)
-//    {
-//
-//    }
-//
-//    public CityResponseDTO toDto(City entity)
-//    {
-//
-//    }
+    public static CityResponseDTO toDto(City entity)
+    {
+        return CityResponseDTO.builder()
+                .id(entity.getId())
+                .name(entity.getName())
+                .build();
+    }
 }

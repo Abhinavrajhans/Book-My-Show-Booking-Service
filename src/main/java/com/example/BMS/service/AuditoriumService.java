@@ -11,6 +11,7 @@ import java.util.List;
 public interface AuditoriumService {
 
     AuditoriumResponseDTO createAuditorium(AuditoriumRequestDTO auditoriumRequestDTO);
-    AuditoriumResponseDTO getAuditoriumById(Long id);
-    List<AuditoriumResponseDTO> getAllAuditorium();
+    AuditoriumResponseDTO findAuditoriumById(Long id);
+    List<AuditoriumResponseDTO> findAllAuditorium();
+    Auditorium findAuditoriumEntityById(Long id);
 }

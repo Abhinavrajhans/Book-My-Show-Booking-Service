@@ -2,17 +2,28 @@ package com.example.BMS.adapter;
 
 import com.example.BMS.dto.ShowSeatRequestDTO;
 import com.example.BMS.dto.ShowSeatResponseDTO;
+import com.example.BMS.models.Seat;
+import com.example.BMS.models.Show;
 import com.example.BMS.models.ShowSeat;
+import com.example.BMS.models.Ticket;
 
 public class ShowSeatAdapter {
 
-//    public ShowSeat toEntity(ShowSeatRequestDTO dto)
-//    {
-//
-//    }
-//
-//    public ShowSeatResponseDTO toDTO(ShowSeat entity)
-//    {
-//
-//    }
+    public static ShowSeat toEntity(ShowSeatRequestDTO dto, Seat seat, Show show, Ticket ticket)
+    {
+        return ShowSeat.builder()
+                .show(show)
+                .seat(seat)
+                .ticket(ticket)
+                .status(dto.getStatus())
+                .build();
+    }
+
+    public static ShowSeatResponseDTO toDTO(ShowSeat entity)
+    {
+        return ShowSeatResponseDTO.builder()
+                .id(entity.getId())
+                .status(entity.getStatus())
+                .build();
+    }
 }

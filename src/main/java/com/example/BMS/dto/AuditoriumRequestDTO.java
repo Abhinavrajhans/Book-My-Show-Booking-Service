@@ -22,11 +22,15 @@ import java.util.List;
 @Builder
 public class AuditoriumRequestDTO {
 
+
     @NotBlank(message="name is required")
-    @Size(min=1, max=50 , message ="Name must be between 1 to 50 characters")
+    @Size(min=2,max=100,message="The name must be between 2 and 100 characters")
     private String name;
 
-    @Min(value = 1, message = "capacity must be greater than 0")
+    @NotNull(message="capacity is required")
     private int capacity;
+
+    @NotNull(message="Theatre is required")
+    private Long theatreId;
 
 }
