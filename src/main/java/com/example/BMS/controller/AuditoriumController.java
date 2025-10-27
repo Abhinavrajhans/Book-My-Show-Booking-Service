@@ -21,8 +21,7 @@ public class AuditoriumController {
 
     @PostMapping
     public ResponseEntity<AuditoriumResponseDTO> createAuditorium(@Valid @RequestBody AuditoriumRequestDTO auditoriumRequestDTO) {
-        AuditoriumResponseDTO auditoriumResponseDTO = auditoriumService.createAuditorium(auditoriumRequestDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(auditoriumResponseDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(auditoriumService.createAuditorium(auditoriumRequestDTO));
     }
 
     @GetMapping("/id/{id}")

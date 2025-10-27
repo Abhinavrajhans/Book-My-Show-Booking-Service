@@ -20,7 +20,7 @@ public class CityController {
 
     @PostMapping
     public ResponseEntity<CityResponseDTO> createCity(@Valid @RequestBody CityRequestDTO cityRequestDTO){
-        return ResponseEntity.status(HttpStatus.CREATED).body(cityService.addCity(cityRequestDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(cityService.createCity(cityRequestDTO));
     }
 
     @GetMapping("/id/{id}")

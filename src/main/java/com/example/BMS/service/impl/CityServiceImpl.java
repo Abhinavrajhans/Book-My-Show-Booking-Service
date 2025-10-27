@@ -20,7 +20,7 @@ public class CityServiceImpl implements CityService {
     private final CityRepository cityRepository;
 
     @Override
-    public CityResponseDTO addCity(CityRequestDTO cityRequestDTO) {
+    public CityResponseDTO createCity(CityRequestDTO cityRequestDTO) {
         return CityAdapter.toDto(cityRepository.save(CityAdapter.toEntity(cityRequestDTO)));
     }
 

@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
        return UserAdapter.toDTO(userRepository.save(UserAdapter.toEntity(userRequestDTO)));

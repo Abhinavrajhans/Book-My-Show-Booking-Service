@@ -20,9 +20,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class TicketServiceImpl implements TicketService {
 
-    private TicketRepository ticketRepository;
-    private UserService userService;
-    private ShowService showService;
+    private final TicketRepository ticketRepository;
+    private final UserService userService;
+    private final ShowService showService;
 
     public TicketResponseDTO createTicket(TicketRequestDTO ticketRequestDTO) {
         User user = userService.findUserEntityById(ticketRequestDTO.getUserId());

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CityService {
 
-    CityResponseDTO addCity(CityRequestDTO cityRequestDTO);
+    CityResponseDTO createCity(CityRequestDTO cityRequestDTO);
     CityResponseDTO findCityById(Long id);
     List<CityResponseDTO> findAllCities();
     City findCityEntityById(Long id);
