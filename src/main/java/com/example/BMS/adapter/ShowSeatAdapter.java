@@ -9,18 +9,16 @@ import com.example.BMS.models.Ticket;
 
 public class ShowSeatAdapter {
 
-    public static ShowSeat toEntity(ShowSeatRequestDTO dto, Seat seat, Show show, Ticket ticket)
-    {
+    public static ShowSeat toEntity(ShowSeatRequestDTO dto, Seat seat, Show show)  {
         return ShowSeat.builder()
                 .show(show)
                 .seat(seat)
-                .ticket(ticket)
+                .ticket(null)
                 .status(dto.getStatus())
                 .build();
     }
 
-    public static ShowSeatResponseDTO toDTO(ShowSeat entity)
-    {
+    public static ShowSeatResponseDTO toDTO(ShowSeat entity) {
         return ShowSeatResponseDTO.builder()
                 .id(entity.getId())
                 .status(entity.getStatus())

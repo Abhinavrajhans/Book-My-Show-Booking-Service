@@ -30,7 +30,6 @@ public class ShowSeat extends BaseModel{
     @Enumerated(EnumType.ORDINAL)
     private ShowSeatStatus status;
 
-    @NotNull(message="Ticket is required")
     @ManyToOne
     private Ticket ticket;
 }
